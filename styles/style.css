@@ -84,6 +84,7 @@ ol {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .search-form {
@@ -104,7 +105,7 @@ ol {
 }
 
 .search-form__textfield {
-  width: 225px;
+  min-width: 225px;
   border: none;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
@@ -136,6 +137,14 @@ ol {
   outline-offset: 1px;
 }
 
+.search-form__label:has(.search-form__pseudo-checkbox):hover {
+  text-decoration: underline;
+}
+
+.search-form__label:has(.search-form__pseudo-checkbox):active {
+  text-decoration: none;
+}
+
 .search-form__checkbox-list {
   display: flex;
   gap: 15px;
@@ -160,10 +169,7 @@ ol {
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   opacity: 1;
-}
-
-.search-form__label:has(.search-form__pseudo-checkbox):hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .title {
@@ -179,6 +185,10 @@ ol {
 }
 
 .content__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  gap: 22px;
   width: 100%;
   min-width: 0;
   height: 100%;
@@ -189,19 +199,19 @@ ol {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  min-width: 399px;
   height: 298px;
-  margin-top: 20px;
   overflow: auto;
+}
+
+.content__list-container:has(.preloader) {
+  overflow: hidden;
 }
 
 .content__list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-}
-
-.content__list-item {
-  padding: 1px;
+  gap: 27px;
 }
 
 .content__card-link_current {
@@ -210,16 +220,18 @@ ol {
 
 .content__card-link {
   display: block;
+  margin: 1px;
   color: #fff;
   text-decoration: none;
 }
 
-.content__card-link:active {
-  background-color: #545050;
-}
-
 .content__card-link:hover {
   text-decoration: underline;
+}
+
+.content__card-link:active {
+  text-decoration: none;
+  background-color: #545050;
 }
 
 .content__card-link:focus {
@@ -227,6 +239,7 @@ ol {
 }
 
 .content__card-link:focus-visible {
+  border: 1px transparent;
   outline: 1px solid #fff;
   outline-offset: 0;
 }
@@ -244,10 +257,13 @@ ol {
 }
 
 .content__video-card-title {
+  padding-top: 3px;
+  padding-left: 1px;
   overflow: hidden;
   font-family: Oswald, sans-serif;
   font-weight: bold;
   font-size: 30px;
+  line-height: 100%;
   text-transform: uppercase;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -256,7 +272,6 @@ ol {
 .content__video-card-description {
   display: -webkit-box;
   overflow: hidden;
-  line-height: 16.2px;
   text-overflow: ellipsis;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -273,7 +288,7 @@ ol {
 .button {
   width: 100%;
   border: 1px solid #fff;
-  padding: 6px 0;
+  padding: 5px 0;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: bold;
@@ -287,6 +302,7 @@ ol {
 }
 
 .button:active {
+  text-decoration: none;
   background-color: #545050;
 }
 
